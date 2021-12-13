@@ -22,7 +22,7 @@ public class BasicCalculator {
         return number1 * number2;
     }
 
-    public Long div(Long number1, Long number2) {
+    public Double div(Double number1, Double number2) {
         logger.info( "Dividing {} / {}", number1, number2 );
         if (number2 == 0) {
             throw new IllegalArgumentException("Division by zero");
