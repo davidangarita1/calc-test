@@ -25,6 +25,21 @@ public class BasicCalculatorTest {
         assertEquals(expectedValue, result);
     }
 
+    @Test
+    @DisplayName("Testing sub: 3-2=1")
+    void sub() {
+        // Arrange
+        Long number1 = 3L;
+        Long number2 = 2L;
+        Long expectedValue = 1L;
+
+        // Act
+        Long result = basicCalculator.sub(number1, number2);
+
+        // Assert
+        assertEquals(expectedValue, result);
+    }
+
     @DisplayName("Testing several sums")
     @ParameterizedTest(name = "{0} + {1} = {2}")
     @CsvSource({
@@ -37,5 +52,19 @@ public class BasicCalculatorTest {
         assertEquals(expectedResult, basicCalculator.sum(first, second),
                 () -> first + " + " + second + " should equal " + expectedResult);
     }
+
+    @DisplayName("Testing several subs")
+    @ParameterizedTest(name = "{0} - {1} = {2}")
+    @CsvSource({
+            "0,    1,   -1",
+            "1,    2,   -1",
+            "49,  51, -2",
+            "1,  100, -99"
+    })
+    public void severalSubs(Long first, Long second, Long expectedResult) {
+        assertEquals(expectedResult, basicCalculator.sub(first, second),
+                () -> first + " - " + second + " should equal " + expectedResult);
+    }
+
 
 }

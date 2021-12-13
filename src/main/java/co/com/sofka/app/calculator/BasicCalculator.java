@@ -12,17 +12,17 @@ public class BasicCalculator {
         return number1 + number2;
     }
 
-    public Long subtract(Long number1, Long number2) {
+    public Long sub(Long number1, Long number2) {
         logger.info( "Subtracting {} - {}", number1, number2 );
         return number1 - number2;
     }
 
-    public Long multiply(Long number1, Long number2) {
+    public Long mul(Long number1, Long number2) {
         logger.info( "Multiplying {} * {}", number1, number2 );
         return number1 * number2;
     }
 
-    public Long divide(Long number1, Long number2) {
+    public Long div(Long number1, Long number2) {
         logger.info( "Dividing {} / {}", number1, number2 );
         if (number2 == 0) {
             throw new IllegalArgumentException("Division by zero");
