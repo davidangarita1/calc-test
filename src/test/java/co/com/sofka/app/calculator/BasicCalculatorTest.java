@@ -40,6 +40,21 @@ public class BasicCalculatorTest {
         assertEquals(expectedValue, result);
     }
 
+    @Test
+    @DisplayName("Testing mul: 3*2=6")
+    void mul() {
+        // Arrange
+        Long number1 = 3L;
+        Long number2 = 2L;
+        Long expectedValue = 6L;
+
+        // Act
+        Long result = basicCalculator.mul(number1, number2);
+
+        // Assert
+        assertEquals(expectedValue, result);
+    }
+
     @DisplayName("Testing several sums")
     @ParameterizedTest(name = "{0} + {1} = {2}")
     @CsvSource({
@@ -64,6 +79,19 @@ public class BasicCalculatorTest {
     public void severalSubs(Long first, Long second, Long expectedResult) {
         assertEquals(expectedResult, basicCalculator.sub(first, second),
                 () -> first + " - " + second + " should equal " + expectedResult);
+    }
+
+    @DisplayName("Testing several muls")
+    @ParameterizedTest(name = "{0} * {1} = {2}")
+    @CsvSource({
+            "0,    1,   0",
+            "1,    2,   2",
+            "49,  51, 2499",
+            "1,  100, 100"
+    })
+    public void severalMuls(Long first, Long second, Long expectedResult) {
+        assertEquals(expectedResult, basicCalculator.mul(first, second),
+                () -> first + " * " + second + " should equal " + expectedResult);
     }
 
 
